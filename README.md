@@ -10,3 +10,6 @@
 2、Database schema
 
 3、生成代码保存地址：D:/code
+
+#### 感谢作者
+本文参考自：https://github.com/moshowgame/SpringBootCodeGenerator
