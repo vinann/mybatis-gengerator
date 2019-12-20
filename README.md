@@ -1,7 +1,7 @@
 # mybatis-gengerator
 
 #### 介绍
-生成mybatis代码------【整理下分享给张樊华】
+生成mybatis代码，不用写增删改查------【整理下分享给张樊华】
 
 以下配置可在IndexController根据具体项目修改
 
