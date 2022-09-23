@@ -1,7 +1,7 @@
-package ${packageName}.service;
+package ${serviceName};
 
-import com.github.pagehelper.PageInfo;
-import ${packageName}.entity.${classInfo.className};
+<#--import com.github.pagehelper.PageInfo;-->
+import ${modelName}.${classInfo.className};
 
 import java.util.List;
 
@@ -22,6 +22,6 @@ public interface ${classInfo.className}Service {
 
     List<${classInfo.className}> list();
 
-    PageInfo<${classInfo.className}> listByPage(int page, int size);
+<#--    PageInfo<${classInfo.className}> listByPage(int page, int size);-->
 
 }

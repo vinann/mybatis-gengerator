@@ -1,10 +1,10 @@
-package ${packageName}.service.impl;
+package ${serviceImplName};
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import ${packageName}.entity.${classInfo.className};
-import ${packageName}.repository.${classInfo.className}Mapper;
-import ${packageName}.service.${classInfo.className}Service;
+<#--import com.github.pagehelper.PageHelper;-->
+<#--import com.github.pagehelper.PageInfo;-->
+import ${modelName}.${classInfo.className};
+import ${mapperName}.${classInfo.className}Mapper;
+import ${serviceName}.${classInfo.className}Service;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -47,10 +47,10 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 		return ${classInfo.className?uncap_first}Mapper.list();
 	}
 
-	@Override
-	public PageInfo<${classInfo.className}> listByPage(int page, int size) {
-		PageHelper.startPage(page, size);
-		return new PageInfo<>(${classInfo.className?uncap_first}Mapper.list());
-	}
+<#--	@Override-->
+<#--	public PageInfo<${classInfo.className}> listByPage(int page, int size) {-->
+<#--		PageHelper.startPage(page, size);-->
+<#--		return new PageInfo<>(${classInfo.className?uncap_first}Mapper.list());-->
+<#--	}-->
 
 }

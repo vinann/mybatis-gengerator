@@ -1,15 +1,16 @@
-package ${packageName}.entity;
+package ${modelName};
 
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
+import lombok.Data;
+
 
 /**
 *  ${classInfo.classComment}
 * @author ${authorName} ${.now?string('yyyy-MM-dd')}
 */
+@Data
 public class ${classInfo.className} implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -20,7 +21,7 @@ public class ${classInfo.className} implements Serializable {
 
 </#list>
 </#if>
-<#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
+<#--<#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
     public ${classInfo.className}() {
     }
 
@@ -34,5 +35,5 @@ public class ${classInfo.className} implements Serializable {
     }
 
 </#list>
-</#if>
+</#if>-->
 }

@@ -79,7 +79,7 @@ public class IndexController {
     @ResponseBody
     public String gen(){
         try {
-            FileReader fileReader = new FileReader("C:/Users/horen/Desktop/bc.sql");
+            FileReader fileReader = new FileReader("C:\\Users\\Administrator\\Desktop\\gen.sql");
             BufferedReader reader = new BufferedReader(fileReader);
             int size=0;
             String sql = "";
@@ -104,14 +104,24 @@ public class IndexController {
                     Map<String, Object> params = new HashMap<String, Object>();
                     params.put("classInfo", classInfo);
                     params.put("authorName", "wn");
-                    String packageName = "com.horen.cortp";
-                    params.put("packageName", packageName);
+                    String mapperName = "com.furnitry.furnitry_cms_api.mapper.cmsMapper";
+                    String serviceName = "com.furnitry.furnitry_cms_api.service";
+                    String serviceImplName = "com.furnitry.furnitry_cms_api.service.impl";
+                    String mybatisName = "com.furnitry.furnitry_cms_api.mybatis";
+                    String modelName = "com.furnitry.furnitry_cms_api.entity.shop";
+
+                    params.put("mapperName", mapperName);
+                    params.put("serviceName", serviceName);
+                    params.put("serviceImplName", serviceImplName);
+                    params.put("mybatisName", mybatisName);
+                    params.put("modelName", modelName);
+
                     params.put("returnUtil", "");
                     String pre = classInfo.getTableName().split("_")[0];
                     pre = com.softdev.system.generator.util.StringUtils.upperCaseFirst(pre);
                     String controllerName = classInfo.getClassName().replace(pre,"");
                     params.put("controllerName", controllerName);
-                    params.put("schema", "bc.");
+                    params.put("schema", "");
 
 
                     // result
@@ -119,8 +129,8 @@ public class IndexController {
 
 
                     //mybatis old
-                    String controller = freemarkerTool.processString("code-generator/mybatis/controller.ftl", params);
-                    result.put("controller", controller);
+//                    String controller = freemarkerTool.processString("code-generator/mybatis/controller.ftl", params);
+//                    result.put("controller", controller);
                     String service = freemarkerTool.processString("code-generator/mybatis/service.ftl", params);
                     result.put("service", service);
                     String service_impl = freemarkerTool.processString("code-generator/mybatis/service_impl.ftl", params);
@@ -132,12 +142,12 @@ public class IndexController {
                     String model = freemarkerTool.processString("code-generator/mybatis/model.ftl", params);
                     result.put("model", model);
 
-                    FileUtil.saveJavaFile(controller, "D:/code", packageName+".controller", controllerName + "Controller.java");
-                    FileUtil.saveJavaFile(service, "D:/code", packageName+".service", classInfo.getClassName() + "Service.java");
-                    FileUtil.saveJavaFile(service_impl, "D:/code", packageName+".service.impl", classInfo.getClassName() + "ServiceImpl.java");
-                    FileUtil.saveJavaFile(mapper, "D:/code", packageName+".repository", classInfo.getClassName() + "Mapper.java");
-                    FileUtil.saveJavaFile(mybatis, "D:/code", packageName+".mapping", classInfo.getClassName() + "Mapper.xml");
-                    FileUtil.saveJavaFile(model, "D:/code", packageName+".entity", classInfo.getClassName() + ".java");
+//                    FileUtil.saveJavaFile(controller, "D:/code", packageName+".controller", controllerName + "Controller.java");
+                    FileUtil.saveJavaFile(service, "D:/code", serviceName, classInfo.getClassName() + "Service.java");
+                    FileUtil.saveJavaFile(service_impl, "D:/code", serviceImplName, classInfo.getClassName() + "ServiceImpl.java");
+                    FileUtil.saveJavaFile(mapper, "D:/code", mapperName, classInfo.getClassName() + "Mapper.java");
+                    FileUtil.saveJavaFile(mybatis, "D:/code", mybatisName, classInfo.getClassName() + "Mapper.xml");
+                    FileUtil.saveJavaFile(model, "D:/code", modelName, classInfo.getClassName() + ".java");
                 }  catch (Exception e) {
                     e.printStackTrace();
                 }
