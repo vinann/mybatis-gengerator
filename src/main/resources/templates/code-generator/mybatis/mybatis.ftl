@@ -24,12 +24,12 @@
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
                 <#list classInfo.fieldList as fieldItem >
-                    <#if fieldItem.columnName !="id" && fieldItem.columnName !="create_at" && fieldItem.columnName !="update_at" >
-                        <#if fieldItem.fieldClass = "String" >
+                    <#if !fieldItem.isAutoIncrement && fieldItem.columnName !="create_at" && fieldItem.columnName !="update_at" >
+                        <#--<#if fieldItem.fieldClass = "String" >
             ${r"<if test ='null != "}${fieldItem.fieldName} and "" != ${fieldItem.fieldName}${r"'>"}
-                        <#else>
+                        <#else>-->
             ${r"<if test ='null != "}${fieldItem.fieldName}${r"'>"}
-                        </#if>
+                        <#--</#if>-->
                     ${fieldItem.columnName}<#if fieldItem_has_next>,</#if>
             ${r"</if>"}
                     </#if>
@@ -39,12 +39,12 @@
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
                 <#list classInfo.fieldList as fieldItem >
-                    <#if fieldItem.columnName !="id" && fieldItem.columnName !="create_at" && fieldItem.columnName !="update_at" >
-                        <#if fieldItem.fieldClass = "String" >
+                    <#if !fieldItem.isAutoIncrement && fieldItem.columnName !="create_at" && fieldItem.columnName !="update_at" >
+                        <#--<#if fieldItem.fieldClass = "String" >
             ${r"<if test ='null != "}${fieldItem.fieldName} and "" != ${fieldItem.fieldName}${r"'>"}
-                        <#else>
+                        <#else>-->
             ${r"<if test ='null != "}${fieldItem.fieldName}${r"'>"}
-                        </#if>
+                        <#--</#if>-->
                 ${r"#{"}${fieldItem.fieldName}${r"}"}<#if fieldItem_has_next>,</#if>
             ${r"</if>"}
                     </#if>
@@ -57,7 +57,7 @@
         INSERT INTO ${schema}${classInfo.tableName} (
         <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
             <#list classInfo.fieldList as fieldItem >
-                <#if fieldItem.columnName !="id" && fieldItem.columnName !="create_at" && fieldItem.columnName !="update_at" >
+                <#if !fieldItem.isAutoIncrement && fieldItem.columnName !="create_at" && fieldItem.columnName !="update_at" >
             ${fieldItem.columnName}<#if fieldItem_has_next>,</#if>
                 </#if>
             </#list>
@@ -67,7 +67,7 @@
             (
             <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
                 <#list classInfo.fieldList as fieldItem >
-                    <#if fieldItem.columnName !="id" && fieldItem.columnName !="create_at" && fieldItem.columnName !="update_at" >
+                    <#if !fieldItem.isAutoIncrement && fieldItem.columnName !="create_at" && fieldItem.columnName !="update_at" >
                 ${r"#{i."}${fieldItem.fieldName}${r"}"}<#if fieldItem_has_next>,</#if>
                     </#if>
                 </#list>
@@ -78,30 +78,51 @@
 
     <delete id="delete" >
         DELETE FROM ${schema}${classInfo.tableName}
-        WHERE id = ${r"#{id}"}
+        WHERE
+        <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
+            <#list classInfo.fieldList as fieldItem >
+                <#if fieldItem.isAutoIncrement>
+            ${fieldItem.columnName}  = ${r"#{"}id${r"}"}
+                </#if>
+            </#list>
+        </#if>
     </delete>
 
     <update id="update" parameterType="${modelName}.${classInfo.className}">
         UPDATE ${schema}${classInfo.tableName}
         <set>
             <#list classInfo.fieldList as fieldItem >
-                <#if fieldItem.columnName != "id" && fieldItem.columnName != "create_at" && fieldItem.columnName != "update_at">
-                    <#if fieldItem.fieldClass = "String" >
+                <#if !fieldItem.isAutoIncrement && fieldItem.columnName != "create_at" && fieldItem.columnName != "update_at">
+                    <#--<#if fieldItem.fieldClass = "String" >
             ${r"<if test ='null != "}${fieldItem.fieldName} and "" != ${fieldItem.fieldName}${r"'>"}${fieldItem.columnName} = ${r"#{"}${fieldItem.fieldName}${r"}"}<#if fieldItem_has_next>,</#if>${r"</if>"}
-                    <#else>
+                    <#else>-->
             ${r"<if test ='null != "}${fieldItem.fieldName} ${r"'>"}${fieldItem.columnName} = ${r"#{"}${fieldItem.fieldName}${r"}"}<#if fieldItem_has_next>,</#if>${r"</if>"}
-                    </#if>
+                    <#--</#if>-->
                 </#if>
             </#list>
         </set>
-        WHERE id = ${r"#{"}id${r"}"}
+        WHERE
+        <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
+            <#list classInfo.fieldList as fieldItem >
+                <#if fieldItem.isAutoIncrement>
+            ${fieldItem.columnName}  = ${r"#{"}id${r"}"}
+                </#if>
+            </#list>
+        </#if>
     </update>
 
 
     <select id="findById" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List" />
         FROM ${schema}${classInfo.tableName}
-        WHERE id = ${r"#{id}"}
+        WHERE
+        <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
+            <#list classInfo.fieldList as fieldItem >
+                <#if fieldItem.isAutoIncrement>
+            ${fieldItem.columnName}  = ${r"#{"}id${r"}"}
+                </#if>
+            </#list>
+        </#if>
     </select>
 
     <select id="list" resultMap="BaseResultMap">

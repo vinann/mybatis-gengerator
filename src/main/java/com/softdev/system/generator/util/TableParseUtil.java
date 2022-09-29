@@ -159,6 +159,7 @@ public class TableParseUtil {
                     //如果遇到username varchar(65) default '' not null,这种情况，判断第一个空格是否比第一个引号前
                     columnName = columnLine.substring(0, columnLine.indexOf(" "));
 
+                    boolean isAutoIncrement = columnLine.contains("auto_increment");
                     // field Name
 //                    2019-09-08 yj 添加是否下划线转换为驼峰的判断
                     String fieldName;
@@ -266,7 +267,7 @@ public class TableParseUtil {
                     fieldInfo.setFieldName(fieldName);
                     fieldInfo.setFieldClass(fieldClass);
                     fieldInfo.setFieldComment(fieldComment);
-
+                    fieldInfo.setIsAutoIncrement(isAutoIncrement);
                     fieldList.add(fieldInfo);
                 }
             }
