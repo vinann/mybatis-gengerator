@@ -104,11 +104,18 @@ public class IndexController {
                     Map<String, Object> params = new HashMap<String, Object>();
                     params.put("classInfo", classInfo);
                     params.put("authorName", "wn");
-                    String mapperName = "com.furnitry.furnitry_shop_api.mapper";
-                    String serviceName = "com.furnitry.furnitry_shop_api.service";
-                    String serviceImplName = "com.furnitry.furnitry_shop_api.service.impl";
-                    String mybatisName = "com.furnitry.furnitry_shop_api.mybatis";
-                    String modelName = "com.furnitry.furnitry_shop_api.entity";
+//                    shop
+//                    String mapperName = "com.furnitry.furnitry_shop_api.mapper";
+//                    String serviceName = "com.furnitry.furnitry_shop_api.service";
+//                    String serviceImplName = "com.furnitry.furnitry_shop_api.service.impl";
+//                    String mybatisName = "com.furnitry.furnitry_shop_api.mybatis";
+//                    String modelName = "com.furnitry.furnitry_shop_api.entity";
+//                  cms
+                    String mapperName = "com.furnitry.furnitry_cms_api.mapper.shopMapper";
+                    String serviceName = "com.furnitry.furnitry_cms_api.service";
+                    String serviceImplName = "com.furnitry.furnitry_cms_api.service.impl";
+                    String mybatisName = "com.furnitry.furnitry_cms_api.mybatis";
+                    String modelName = "com.furnitry.furnitry_cms_api.entity.shop";
 
                     params.put("mapperName", mapperName);
                     params.put("serviceName", serviceName);

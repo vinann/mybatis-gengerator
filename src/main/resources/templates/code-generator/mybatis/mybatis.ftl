@@ -19,7 +19,7 @@
         </#if>
     </sql>
 
-    <insert id="insert" parameterType="${modelName}.${classInfo.className}"  useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" parameterType="${modelName}.${classInfo.className}"  useGeneratedKeys="true" keyProperty="<#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0><#list classInfo.fieldList as fieldItem ><#if fieldItem.isAutoIncrement>${fieldItem.fieldName}</#if></#list></#if>">
         INSERT INTO ${schema}${classInfo.tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
@@ -105,7 +105,7 @@
         <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
             <#list classInfo.fieldList as fieldItem >
                 <#if fieldItem.isAutoIncrement>
-            ${fieldItem.columnName}  = ${r"#{"}id${r"}"}
+            ${fieldItem.columnName}  = ${r"#{"}${fieldItem.fieldName}${r"}"}
                 </#if>
             </#list>
         </#if>

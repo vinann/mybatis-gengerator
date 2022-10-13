@@ -28,7 +28,7 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	}
 
 	@Override
-	public int delete(String id) {
+	public int delete(Integer id) {
 		return ${classInfo.className?uncap_first}Mapper.delete(id);
 	}
 
@@ -38,7 +38,7 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	}
 
 	@Override
-	public ${classInfo.className} findById(String id) {
+	public ${classInfo.className} findById(Integer id) {
 		return ${classInfo.className?uncap_first}Mapper.findById(id);
 	}
 

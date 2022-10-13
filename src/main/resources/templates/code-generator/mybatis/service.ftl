@@ -14,11 +14,11 @@ public interface ${classInfo.className}Service {
 
     int insert(${classInfo.className} ${classInfo.className?uncap_first});
 
-    int delete(String id);
+    int delete(Integer id);
 
     int update(${classInfo.className} ${classInfo.className?uncap_first});
 
-    ${classInfo.className} findById(String id);
+    ${classInfo.className} findById(Integer id);
 
     List<${classInfo.className}> list();
 
