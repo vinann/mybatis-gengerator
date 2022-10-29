@@ -104,18 +104,26 @@ public class IndexController {
                     Map<String, Object> params = new HashMap<String, Object>();
                     params.put("classInfo", classInfo);
                     params.put("authorName", "wn");
+
+                    String mapperName = "com.missacc.dress.mapper";
+                    String serviceName = "com.missacc.dress.service";
+                    String serviceImplName = "com.missacc.dress.service.impl";
+                    String mybatisName = "com.missacc.dress.mybatis";
+                    String modelName = "com.missacc.dress.entity";
+                    String homePath ="D:\\ideaProject\\dress_missacc_scm_api\\src\\main\\";
+
 //                    shop
 //                    String mapperName = "com.furnitry.furnitry_shop_api.mapper";
 //                    String serviceName = "com.furnitry.furnitry_shop_api.service";
 //                    String serviceImplName = "com.furnitry.furnitry_shop_api.service.impl";
 //                    String mybatisName = "com.furnitry.furnitry_shop_api.mybatis";
 //                    String modelName = "com.furnitry.furnitry_shop_api.entity";
-//                  cms
-                    String mapperName = "com.furnitry.furnitry_cms_api.mapper.shopMapper";
-                    String serviceName = "com.furnitry.furnitry_cms_api.service";
-                    String serviceImplName = "com.furnitry.furnitry_cms_api.service.impl";
-                    String mybatisName = "com.furnitry.furnitry_cms_api.mybatis";
-                    String modelName = "com.furnitry.furnitry_cms_api.entity.shop";
+//                    cms
+//                    String mapperName = "com.furnitry.furnitry_cms_api.mapper.shopMapper";
+//                    String serviceName = "com.furnitry.furnitry_cms_api.service";
+//                    String serviceImplName = "com.furnitry.furnitry_cms_api.service.impl";
+//                    String mybatisName = "com.furnitry.furnitry_cms_api.mybatis";
+//                    String modelName = "com.furnitry.furnitry_cms_api.entity.shop";
 
                     params.put("mapperName", mapperName);
                     params.put("serviceName", serviceName);
@@ -150,11 +158,11 @@ public class IndexController {
                     result.put("model", model);
 
 //                    FileUtil.saveJavaFile(controller, "D:/code", packageName+".controller", controllerName + "Controller.java");
-                    FileUtil.saveJavaFile(service, "D:/code", serviceName, classInfo.getClassName() + "Service.java");
-                    FileUtil.saveJavaFile(service_impl, "D:/code", serviceImplName, classInfo.getClassName() + "ServiceImpl.java");
-                    FileUtil.saveJavaFile(mapper, "D:/code", mapperName, classInfo.getClassName() + "Mapper.java");
-                    FileUtil.saveJavaFile(mybatis, "D:/code", mybatisName, classInfo.getClassName() + "Mapper.xml");
-                    FileUtil.saveJavaFile(model, "D:/code", modelName, classInfo.getClassName() + ".java");
+                    FileUtil.saveJavaFile(service, homePath+"java", serviceName, classInfo.getClassName() + "Service.java");
+                    FileUtil.saveJavaFile(service_impl, homePath+"java", serviceImplName, classInfo.getClassName() + "ServiceImpl.java");
+                    FileUtil.saveJavaFile(mapper, homePath+"java", mapperName, classInfo.getClassName() + "Mapper.java");
+                    FileUtil.saveJavaFile(mybatis, homePath+"resources", "mapper", classInfo.getClassName() + "Mapper.xml");
+                    FileUtil.saveJavaFile(model, homePath+"java", modelName, classInfo.getClassName() + ".java");
                 }  catch (Exception e) {
                     e.printStackTrace();
                 }

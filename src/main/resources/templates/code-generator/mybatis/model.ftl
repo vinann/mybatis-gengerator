@@ -3,7 +3,10 @@ package ${modelName};
 import java.io.Serializable;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 /**
@@ -11,6 +14,9 @@ import lombok.Data;
 * @author ${authorName} ${.now?string('yyyy-MM-dd')}
 */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ${classInfo.className} implements Serializable {
     private static final long serialVersionUID = 1L;
 
