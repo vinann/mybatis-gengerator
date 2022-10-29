@@ -184,7 +184,7 @@ public class TableParseUtil {
                         fieldClass = Long.class.getSimpleName();
                     } else if (columnLine.contains("float")) {
                         fieldClass = Float.class.getSimpleName();
-                    } else if (columnLine.contains("double")|| columnLine.contains("numeric")) {
+                    } else if (columnLine.contains("double")|| columnLine.contains("numeric")|| columnLine.contains("decimal")) {
                         fieldClass = Double.class.getSimpleName();
                     } else if (columnLine.contains("datetime") || columnLine.contains("timestamp")|| columnLine.contains("date")) {
                         fieldClass = Date.class.getSimpleName();
