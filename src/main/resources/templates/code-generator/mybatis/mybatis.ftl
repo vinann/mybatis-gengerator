@@ -53,7 +53,7 @@
         </trim>
     </insert>
 
-    <insert id="insertList">
+    <insert id="insertList" useGeneratedKeys="true" keyProperty="<#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0><#list classInfo.fieldList as fieldItem ><#if fieldItem.isAutoIncrement>${fieldItem.fieldName}</#if></#list></#if>">
         INSERT INTO ${schema}${classInfo.tableName} (
         <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
             <#list classInfo.fieldList as fieldItem >

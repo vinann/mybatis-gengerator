@@ -110,7 +110,8 @@ public class IndexController {
                     String serviceImplName = "com.missacc.dress.service.impl";
                     String mybatisName = "com.missacc.dress.mybatis";
                     String modelName = "com.missacc.dress.entity";
-                    String homePath ="D:\\ideaProject\\dress_missacc_scm_api\\src\\main\\";
+                    String homePath ="D:\\code\\dress_missacc_oms_api\\src\\main\\";
+//                    String homePath ="D:\\code\\";
 
 //                    shop
 //                    String mapperName = "com.furnitry.furnitry_shop_api.mapper";
@@ -120,8 +121,8 @@ public class IndexController {
 //                    String modelName = "com.furnitry.furnitry_shop_api.entity";
 //                    cms
 //                    String mapperName = "com.furnitry.furnitry_cms_api.mapper.shopMapper";
-//                    String serviceName = "com.furnitry.furnitry_cms_api.service";
-//                    String serviceImplName = "com.furnitry.furnitry_cms_api.service.impl";
+//                    String serviceName = "com.furniture.furniture_sync.service";
+//                    String serviceImplName = "com.furniture.furniture_sync.service.impl";
 //                    String mybatisName = "com.furnitry.furnitry_cms_api.mybatis";
 //                    String modelName = "com.furnitry.furnitry_cms_api.entity.shop";
 
