@@ -26,7 +26,7 @@ public class FileUtil {
         }
         // 文件路径
         String filePath = dirPath + File.separator + className;
-        System.out.println("filePath:" + filePath);
+        System.out.println("" + filePath);
         // 保存文件
         saveFile(content, filePath);
     }
