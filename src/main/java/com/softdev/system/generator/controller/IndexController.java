@@ -103,7 +103,7 @@ public class IndexController {
                     // code genarete
                     Map<String, Object> params = new HashMap<String, Object>();
                     params.put("classInfo", classInfo);
-                    params.put("authorName", "wn");
+                    params.put("authorName", "sss");
                     String packageName = "com.horen.cortp";
                     params.put("packageName", packageName);
                     params.put("returnUtil", "");
