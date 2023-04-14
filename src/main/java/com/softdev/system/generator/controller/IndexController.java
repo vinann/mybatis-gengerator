@@ -7,6 +7,7 @@ import com.softdev.system.generator.util.FileUtil;
 import com.softdev.system.generator.util.FreemarkerTool;
 import freemarker.template.TemplateException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.mapper.Mapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -110,9 +111,8 @@ public class IndexController {
 //                    String serviceImplName = "com.furnitry.furnitry_shop_api.service.impl";
 //                    String mybatisName = "com.furnitry.furnitry_shop_api.mybatis";
 //                    String modelName = "com.furnitry.furnitry_shop_api.entity";
-                    String homePath ="D:\\code\\furnitry_scm_api\\src\\main\\";
-//                    String homePath ="D:\\ideaProject\\";
-
+                    String homePath ="D:\\code\\helloice_cms_api\\src\\main\\";
+//                    String homePath ="D:\\ideaProject
 //                    shop
 //                    String mapperName = "com.furnitry.furnitry_shop_api.mapper";
 //                    String serviceName = "com.furnitry.furnitry_shop_api.service";
@@ -120,11 +120,11 @@ public class IndexController {
 //                    String mybatisName = "com.furnitry.furnitry_shop_api.mybatis";
 //                    String modelName = "com.furnitry.furnitry_shop_api.entity";
 //                    cms
-                    String mapperName = "com.furnitry.furnitry_scm_api.mapper";
-                    String serviceName = "com.furnitry.furnitry_scm_api.service";
-                    String serviceImplName = "com.furnitry.furnitry_scm_api.service.impl";
-                    String mybatisName = "com.furnitry.furnitry_scm_api.mybatis";
-                    String modelName = "com.furnitry.furnitry_scm_api.entity";
+                    String mapperName = "com.helloice.mapper.cms";
+                    String serviceName = "com.helloice.service";
+                    String serviceImplName = "com.helloice.service.impl";
+                    String mybatisName = "com.helloice.mybatis";
+                    String modelName = "com.helloice.entity.cms";
 
                     params.put("mapperName", mapperName);
                     params.put("serviceName", serviceName);
@@ -162,7 +162,7 @@ public class IndexController {
 //                    FileUtil.saveJavaFile(service, homePath+"java", serviceName, classInfo.getClassName() + "Service.java");
 //                    FileUtil.saveJavaFile(service_impl, homePath+"java", serviceImplName, classInfo.getClassName() + "ServiceImpl.java");
                     FileUtil.saveJavaFile(mapper, homePath+"java", mapperName, classInfo.getClassName() + "Mapper.java");
-                    FileUtil.saveJavaFile(mybatis, homePath+"resources", "mapper", classInfo.getClassName() + "Mapper.xml");
+                    FileUtil.saveJavaFile(mybatis, homePath+"resources", "mapper\\cms", classInfo.getClassName() + "Mapper.xml");
                     FileUtil.saveJavaFile(model, homePath+"java", modelName, classInfo.getClassName() + ".java");
                 }  catch (Exception e) {
                     e.printStackTrace();

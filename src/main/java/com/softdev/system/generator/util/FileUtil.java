@@ -1,13 +1,19 @@
 package com.softdev.system.generator.util;
 
+import lombok.extern.slf4j.Slf4j;
+
+import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * @author Administrator
  * @version $v: 1.0.0, $time:2015/9/29 16:58 Exp $
  */
+@Slf4j
 public class FileUtil {
 
     /**
@@ -17,7 +23,7 @@ public class FileUtil {
      * @param packageName package名
      * @param className class名
      */
-    public static void saveJavaFile(String content, String homePath, String packageName, String className) {
+    public static void saveJavaFile(String content, String homePath, String packageName, String className){
         // 文件夹路径
         String dirPath = homePath  + File.separator+ getPackagePath(packageName);
         File dir = new File(dirPath);
@@ -26,9 +32,19 @@ public class FileUtil {
         }
         // 文件路径
         String filePath = dirPath + File.separator + className;
+
         System.out.println("" + filePath);
         // 保存文件
         saveFile(content, filePath);
+        if (!filePath.contains("ideaProject")) {
+            try {
+                Process p = Runtime.getRuntime().exec("C:\\Users\\Administrator\\AppData\\Local\\Programs\\EmEditor\\EmEditor.exe "+filePath);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 
     /**
