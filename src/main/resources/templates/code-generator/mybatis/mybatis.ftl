@@ -14,7 +14,7 @@
     <sql id="Base_Column_List">
         <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
             <#list classInfo.fieldList as fieldItem >
-                ${fieldItem.columnName}<#if fieldItem_has_next>,</#if>
+                `${fieldItem.columnName}`<#if fieldItem_has_next>,</#if>
             </#list>
         </#if>
     </sql>
